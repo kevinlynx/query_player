@@ -1,0 +1,36 @@
+<div class='panel panel-primary'>
+  <div class="panel-heading">Append new Query Player</div>
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <div class="form-group form-group-sm">
+        <label class="col-sm-3 control-label" for='name'>Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id='name' placeholder="player name">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-3 control-label" for='dst-host'>Dest Host</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id='dst-host' placeholder="dest host: 1.2.3.4:8888">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-3 control-label" for='loader-name'>Loader Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id='loader-name' value='loader_file' >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for='loader-args'>Loader Args</label>
+        <div class="col-sm-8">
+          <textarea type="text" class="form-control" rows='3' id='loader-args' ></textarea>
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <div class="col-sm-offset-3 col-sm-8">
+          <button class="btn btn-primary" onclick='append_player(); return false'>Append</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

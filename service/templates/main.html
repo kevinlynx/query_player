@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='row'>
+  <div class='col-md-8 col-md-offset-2'>
+    {% include 'add_form.html' %}
+    {% for stat in stat_confs %}
+      <div class='panel panel-info'>
+        <div class="panel-heading">{{stat.name}}
+          <button class='pull-right btn btn-xs btn-warning' onclick="remove_player('{{stat.name}}')">Remove</button>
+        </div>
+        <div class="panel-body">
+          <dl class='dl-horizontal' style='word-wrap: break-word;'>
+            <dt>PID</dt>
+            <dd>{{stat.pid}}</dd>
+            <dt>Dest Host</dt>
+            <dd>{{stat['conf']['host']}}</dd>
+            <dt>Loader</dt>
+            <dd>{{stat['conf']['loader']['name']}}</dd>
+            <dt>Loader Args</dt>
+            <dd>{{stat['conf']['loader']['args']}}</dd>
+            <dt>Last Load Time</dt>
+            <dd>{{stat['player']['loader']['last_load_at'] | dateformat }}</dd>
+            <dt>Last Send Time</dt>
+            <dd>{{stat['player']['task']['last_send_at'] | dateformat }}</dd>
+            <dt>Last Query Time</dt>
+            <dd>{{stat['player']['task']['last_query_at'] | dateformat }}</dd>
+            <dt>Stat(200/Non-200/Err)</dt>
+            <dd>{{stat['player']['task']['code_200_cnt']}}/
+              {{stat['player']['task']['code_other_cnt']}}/
+              {{stat['player']['task']['fail_cnt']}}
+            </dd>
+            <dt>wait_io/in_io</dt>
+            <dd>{{stat['player']['task']['io']['wait_io']}}/
+              {{stat['player']['task']['io']['in_io']}}
+            </dd>
+          </dl>
+        </div>
+      </div>
+    {% endfor %}
+  </div> 
+</div>
+{% endblock %}
